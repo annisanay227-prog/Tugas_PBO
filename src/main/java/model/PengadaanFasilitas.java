@@ -1,36 +1,44 @@
 package model;
 
-public class PengadaanFasilitas {
-    private String idPengadaan;
-    private String namaFasilitas;
+public class PengadaanFasilitas extends FasilitasPosyandu {
+
     private int jumlahDibutuhkan;
     private double estimasiBiaya;
     private String statusPengadaan;
 
-    public PengadaanFasilitas(String idPengadaan, String namaFasilitas, int jumlahDibutuhkan, double estimasiBiaya, String statusPengadaan) {
-        this.idPengadaan = idPengadaan;
-        this.namaFasilitas = namaFasilitas;
+    public PengadaanFasilitas(
+            String idPengadaan,
+            String namaFasilitas,
+            int jumlahDibutuhkan,
+            double estimasiBiaya,
+            String statusPengadaan) {
+
+        super(idPengadaan, namaFasilitas);
+
         this.jumlahDibutuhkan = jumlahDibutuhkan;
         this.estimasiBiaya = estimasiBiaya;
         this.statusPengadaan = statusPengadaan;
     }
 
+    // Getter dan Setter ID
     public String getIdPengadaan() {
-        return idPengadaan;
+        return getId();
     }
 
     public void setIdPengadaan(String idPengadaan) {
-        this.idPengadaan = idPengadaan;
+        setId(idPengadaan);
     }
 
+    // Getter dan Setter Nama
     public String getNamaFasilitas() {
-        return namaFasilitas;
+        return getNama();
     }
 
     public void setNamaFasilitas(String namaFasilitas) {
-        this.namaFasilitas = namaFasilitas;
+        setNama(namaFasilitas);
     }
 
+    // Getter dan Setter Jumlah
     public int getJumlahDibutuhkan() {
         return jumlahDibutuhkan;
     }
@@ -39,6 +47,7 @@ public class PengadaanFasilitas {
         this.jumlahDibutuhkan = jumlahDibutuhkan;
     }
 
+    // Getter dan Setter Estimasi Biaya
     public double getEstimasiBiaya() {
         return estimasiBiaya;
     }
@@ -47,6 +56,7 @@ public class PengadaanFasilitas {
         this.estimasiBiaya = estimasiBiaya;
     }
 
+    // Getter dan Setter Status
     public String getStatusPengadaan() {
         return statusPengadaan;
     }
@@ -55,8 +65,16 @@ public class PengadaanFasilitas {
         this.statusPengadaan = statusPengadaan;
     }
 
+    // Polymorphism - method overriding
+    @Override
     public void tampilkanInfo() {
-        System.out.printf("| %-8s | %-22s | %-6d | Rp %-12.2f | %-12s |%n", 
-            idPengadaan, namaFasilitas, jumlahDibutuhkan, estimasiBiaya, statusPengadaan);
+        System.out.printf(
+                "| %-8s | %-22s | %-6d | Rp %-12.2f | %-12s |%n",
+                getIdPengadaan(),
+                getNamaFasilitas(),
+                jumlahDibutuhkan,
+                estimasiBiaya,
+                statusPengadaan
+        );
     }
 }

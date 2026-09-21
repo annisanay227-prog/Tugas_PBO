@@ -1,3 +1,4 @@
+model\FasilitasPosyandu.class
 model\PengadaanFasilitas.class
 service\SistemPosyandu.class
 model\AlatPosyandu.class
